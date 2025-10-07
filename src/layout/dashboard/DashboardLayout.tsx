@@ -13,12 +13,10 @@ import { menuActions } from '../../libs/store/menuActions'
 const filterMenu = (items: any[], roles: string[]): any[] => {
     return items
         .map(item => {
-            // اگر نقش‌ها تعریف شده و کاربر هیچکدوم از اونها رو نداره، null برگردان
             if (item.roles && !item.roles.some((r: string) => roles.includes(r))) {
                 return null;
             }
 
-            // اگر زیرمنو دارد، بازگشتی فیلتر کن
             if (item.children) {
                 const filteredChildren = filterMenu(item.children, roles)
                 if (filteredChildren.length === 0) return null;
@@ -32,7 +30,6 @@ const filterMenu = (items: any[], roles: string[]): any[] => {
 
 
 
-// Main Dashboard Layout Component
 export default function DashboardLayout() {
     const { user } = useAuthStore()
     const menuQuery = useQuery({
@@ -45,7 +42,6 @@ export default function DashboardLayout() {
     });
 
 
-    // Update menu store when data changes
     useEffect(() => {
         const roles: string[] = JSON.parse(localStorage.getItem('roles') || "[]")
 
@@ -53,7 +49,6 @@ export default function DashboardLayout() {
             const filtered = filterMenu(menuQuery.data, roles)
             menuActions.setItems(filtered)
         } else {
-            // Set default menu items if API doesn't load
 
             const filtered = filterMenu(defaultMenuItems, roles)
             menuActions.setItems(filtered)

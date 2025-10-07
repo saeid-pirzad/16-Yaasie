@@ -16,7 +16,7 @@ import {
     UsersRound
 } from 'lucide-react'
 // Sidebar Component
-import Logo from '../../assets/images/Logo.svg?url';
+// import Logo from '../../assets/images/Logo.svg?url';
 
 
 export const Sidebar = () => {
@@ -93,7 +93,7 @@ export const Sidebar = () => {
                 className="fixed lg:sticky bottom-0 top-0 lg:right-0 [right:-18rem] w-64 bg-white flex flex-col  rounded-lg m-4 dark:bg-slate-800">
 
                 <div className="p-4">
-                    <img src={Logo} className="mx-auto w-36" />
+                    {/* <img src={Logo} className="mx-auto w-36" /> */}
                 </div>
                 <nav>
                     <ul className="text-sm text-blue-900 dark:text-white overflow-y-auto max-h-[calc(100vh-7rem)]">
