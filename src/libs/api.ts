@@ -1,6 +1,6 @@
 import { authActions, authStore } from './store/authActions'
 
-const API_BASE_URL = `http://185.231.115.191:8040/api`;
+const API_BASE_URL = `http://185.105.239.136:8057`;
 
 
 export class ApiClient {

@@ -1,16 +1,8 @@
 import { apiClient } from "../../libs/api";
 
-export const LoginBranch = async (username : string , password : string ) =>{
-  return apiClient.request<{
-        success: boolean;
-        token?: string;
-        message?: string;
-        roles: string[];
-        nationalId:string;
-        haveError : boolean;
-        errorMessage : string
-    }>
-    ('/User/LoginBranch', {
+export const Login = async (username : string , password : string ) =>{
+  return apiClient.request
+    ('/Users/Login', {
         method: 'POST',
         body: JSON.stringify({
              username,
